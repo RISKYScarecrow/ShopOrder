@@ -42,7 +42,8 @@ public class MainActivity extends Activity {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
-
+		myList.add(new TextView(this));
+		myList.get(myList.size() - 1).setText("First entry");
 	}
 
 	@Override
