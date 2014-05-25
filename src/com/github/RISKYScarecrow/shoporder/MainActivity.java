@@ -6,23 +6,31 @@ import java.util.List;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
-@SuppressWarnings("unused")
 public class MainActivity extends Activity {
-	// List<String> Items = new ArrayList<String>();
+	List<TextView> myList = new ArrayList<TextView>();
 
-	EditText edittext;
+	public void sendMessage(View v) {
+		EditText edittext = (EditText) findViewById(R.id.edit_message);
 
-	public void sendMessage() {
-
+		String mess = edittext.getText().toString();
+		
+		LinearLayout linear = new LinearLayout(this);
+		linear.setOrientation(LinearLayout.VERTICAL);
+		
+		myList.add(new TextView(this));
+		myList.get(myList.size() - 1).setText(mess);
+		linear.addView( (TextView) myList.get(myList.size() - 1));
+		Toast.makeText(MainActivity.this, mess, Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
@@ -34,15 +42,7 @@ public class MainActivity extends Activity {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
-		/*
-		 * edittext = (EditText) findViewById(R.id.addingbox);
-		 * edittext.setOnKeyListener(new EditText.OnKeyListener() { public
-		 * boolean onKey(View v, int keyCode, KeyEvent event) { if
-		 * ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode ==
-		 * KeyEvent.KEYCODE_ENTER)) { // Perform action on key press
-		 * Toast.makeText(MainActivity.this, edittext.getText(),
-		 * Toast.LENGTH_SHORT).show(); return true; } return false; } });
-		 */
+
 	}
 
 	@Override
