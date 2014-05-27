@@ -11,39 +11,64 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
-	List<TextView> myList = new ArrayList<TextView>();
+
+	//ListView listView;
+	ArrayAdapter<String> ListAdapter;
+
+	List<String> myList = new ArrayList<String>();
 
 	public void sendMessage(View v) {
-		EditText edittext = (EditText) findViewById(R.id.edit_message);
-
-		String mess = edittext.getText().toString();
-		
-		LinearLayout linear = new LinearLayout(this);
-		linear.setOrientation(LinearLayout.VERTICAL);
-		
-		myList.add(new TextView(this));
-		myList.get(myList.size() - 1).setText(mess);
-		linear.addView( (TextView) myList.get(myList.size() - 1));
-		Toast.makeText(MainActivity.this, mess, Toast.LENGTH_SHORT).show();
+		EditText editText = (EditText) findViewById(R.id.editText1);
+		String mess = editText.getText().toString();
+		editText.setText("");
+		myList.add(mess);
+		//final ArrayAdapter adapter = ((ArrayAdapter)getListAdapter());
+		ListAdapter.notifyDataSetChanged();
+		Toast.makeText(this, mess, Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.fragment_main);
 
+		ListAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, myList);
+		ListView lv = (ListView) findViewById(R.id.list);
+		lv.setAdapter(ListAdapter);
+
+		
+		lv.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				Toast.makeText(getApplicationContext(),
+						"Click ListItem Number " + position, Toast.LENGTH_SHORT)
+						.show();
+			}
+		});
+		
+		
+		
+		
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
-		myList.add(new TextView(this));
-		myList.get(myList.size() - 1).setText("First entry");
+		EditText editText = (EditText) findViewById(R.id.editText1);
+		editText.setFocusableInTouchMode(true);
+		editText.setFocusable(true);
+		editText.requestFocus();
+		editText.setCursorVisible(true);
 	}
 
 	@Override
@@ -66,9 +91,6 @@ public class MainActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
 	public static class PlaceholderFragment extends Fragment {
 
 		public PlaceholderFragment() {

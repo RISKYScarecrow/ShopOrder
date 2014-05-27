@@ -2,9 +2,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <string name="app_name">ShopOrder</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string android:id="@+id/string1" android:layout_width="wrap_content" android:layout_height="wrap_content" name="button_send">Send</string>
-    <string android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/string1" name="edit_message">Edit your message here</string>
+    <string name="edit_message">Edit Message</string>
+    <string name="button_send">Send</string>
 
 </resources>
