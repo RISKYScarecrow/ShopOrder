@@ -19,7 +19,7 @@
         android:layout_gravity="right|top"
         android:layout_row="0"
         android:onClick="sendMessage"
-        android:text="Add" />
+        android:text="@string/button_add" />
 
     <EditText
         android:id="@+id/editText1"
