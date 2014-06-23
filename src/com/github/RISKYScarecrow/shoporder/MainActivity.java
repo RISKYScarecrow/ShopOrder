@@ -14,11 +14,8 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	/*
@@ -56,7 +53,7 @@ public class MainActivity extends Activity {
 
 		// Create and populate stockItems.
 		if (stockItems == null) {
-			stockItems = new Stock[] { new Stock("Pants")};
+			stockItems = new Stock[] { new Stock("Pants", "123456")};
 		}
 		stockList = new ArrayList<Stock>();
 		stockList.addAll(Arrays.asList(stockItems));
@@ -72,7 +69,7 @@ public class MainActivity extends Activity {
 		EditText editText = (EditText) findViewById(R.id.editText1);
 		String mess = editText.getText().toString();
 		editText.setText("");
-		stockList.add(new Stock(mess));
+		stockList.add(new Stock(mess,"000000"));
 		// final ArrayAdapter adapter = ((ArrayAdapter)getListAdapter());
 		listAdapter.notifyDataSetChanged();
 		// Toast.makeText(this, mess, Toast.LENGTH_SHORT).show();
@@ -111,7 +108,7 @@ public class MainActivity extends Activity {
 			return rootView;
 		}
 	}
-
+/*
 	static class ViewHolder {
 		protected TextView text;
 		protected ImageView icon;
@@ -141,4 +138,5 @@ public class MainActivity extends Activity {
 			}
 		}
 	}
+	*/
 }
