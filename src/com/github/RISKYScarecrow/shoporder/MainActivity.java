@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
 						stock.toggleChecked();
 						StockViewHolder viewHolder = (StockViewHolder) item
 								.getTag();
-						viewHolder.getCheckBox().setChecked(stock.isChecked());
+						viewHolder.getCheckBox1().setChecked(stock.isChecked());
 					}
 				});
 

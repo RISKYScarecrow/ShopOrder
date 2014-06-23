@@ -4,27 +4,28 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class StockViewHolder {
-	private CheckBox checkbox;
+	private CheckBox checkbox1;
 	private TextView textview;
 	
 	public StockViewHolder() {}
 	
-	public StockViewHolder (TextView tv, CheckBox cb)
+	public StockViewHolder (TextView tv, CheckBox cb1)
 	{
 		this.textview = tv;
-		this.checkbox = cb;
+		this.checkbox1 = cb1;
+
 	}
 	
 	
 	//Set-ers
-	public void setTextView (TextView tv)
+	public void setTextView(TextView tv)
 	{
 		this.textview = tv;
 	}
 	
-	public void setCheckBox (CheckBox cb)
+	public void setCheckBox1(CheckBox cb)
 	{
-		this.checkbox = cb;
+		this.checkbox1 = cb;
 	}
 	
 	
@@ -34,8 +35,9 @@ public class StockViewHolder {
 		return this.textview;
 	}
 	
-	public CheckBox getCheckBox()
+	public CheckBox getCheckBox1()
 	{
-		return this.checkbox;
+		return this.checkbox1;
 	}
+
 }

@@ -10,12 +10,21 @@
     android:padding="10dp"
     android:textSize="16sp" >
   </TextView>
+  
+    <TextView android:id="@+id/rowTextView2" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:textSize="16sp" >
+  </TextView>
  
   <CheckBox android:id="@+id/CheckBox01" 
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content" 
     android:padding="10dp"
-    android:layout_alignParentRight="true" android:layout_marginRight="6sp"
+    android:layout_alignParentRight="true" 
+    android:layout_marginRight="6sp"
     android:focusable="false">
   </CheckBox>
+  
 </RelativeLayout>

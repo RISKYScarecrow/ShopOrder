@@ -26,23 +26,24 @@ public class StockArrayAdapter extends ArrayAdapter<Stock>
       Stock stock = (Stock) this.getItem(position);   
   
       // The child views in each row.  
-      CheckBox checkBox ;   
-      TextView textView ;   
+      CheckBox checkBox1;   
+      TextView textView;   
         
       // Create a new row view  
       if ( convertView == null ) {  
         convertView = inflater.inflate(R.layout.simplerow, null);  
           
         // Find the child views.  
-        textView = (TextView) convertView.findViewById( R.id.rowTextView );  
-        checkBox = (CheckBox) convertView.findViewById( R.id.CheckBox01 );  
+        textView = (TextView) convertView.findViewById(R.id.rowTextView);  
+        checkBox1 = (CheckBox) convertView.findViewById(R.id.CheckBox01); 
+        
           
         // Optimization: Tag the row with it's child views, so we don't have to   
         // call findViewById() later when we reuse the row.  
-        convertView.setTag( new StockViewHolder(textView,checkBox) );  
+        convertView.setTag(new StockViewHolder(textView, checkBox1));  
   
         // If CheckBox is toggled, update the planet it is tagged with.  
-        checkBox.setOnClickListener( new View.OnClickListener() {  
+        checkBox1.setOnClickListener( new View.OnClickListener() {  
           public void onClick(View v) {  
             CheckBox cb = (CheckBox) v ;  
             Stock stock= (Stock) cb.getTag();  
@@ -54,16 +55,17 @@ public class StockArrayAdapter extends ArrayAdapter<Stock>
       else {  
         // Because we use a ViewHolder, we avoid having to call findViewById().  
         StockViewHolder viewHolder = (StockViewHolder) convertView.getTag();  
-        checkBox = viewHolder.getCheckBox() ;  
-        textView = viewHolder.getTextView() ;  
+        checkBox1 = viewHolder.getCheckBox1() ;  
+
+        textView  = viewHolder.getTextView() ;  
       }  
   
       // Tag the CheckBox with the Planet it is displaying, so that we can  
       // access the planet in onClick() when the CheckBox is toggled.  
-      checkBox.setTag(stock);   
+      checkBox1.setTag(stock);   
         
       // Display planet data  
-      checkBox.setChecked(stock.isChecked());  
+      checkBox1.setChecked(stock.isChecked());  
       textView.setText(stock.getName());        
         
       return convertView;  

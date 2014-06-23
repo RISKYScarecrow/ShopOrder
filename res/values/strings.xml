@@ -3,7 +3,6 @@
 
     <string name="app_name">ShopOrder</string>
     <string name="action_settings">Settings</string>
-    <string name="edit_message">Edit Message</string>
     <string name="button_add">Add to List</string>
 
 </resources>
